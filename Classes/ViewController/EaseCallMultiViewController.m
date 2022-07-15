@@ -15,6 +15,7 @@
 #import <SDWebImage/UIView+WebCache.h>
 #import "UIImage+Ext.h"
 #import "EaseCallLocalizable.h"
+#import "UIColor+EaseCall.h"
 
 @interface EaseCallMultiViewController ()<EaseCallStreamViewDelegate>
 @property (nonatomic) UIButton* inviteButton;
@@ -32,13 +33,16 @@
     // Do any additional setup after loading the view.
     [self setupSubViews];
     [self updateViewPos];
+
 }
 
 - (void)setupSubViews
 {
     self.bigView = nil;
     self.isNeedLayout = NO;
-    self.contentView.backgroundColor = [UIColor grayColor];
+//    self.contentView.backgroundColor = [UIColor grayColor];
+    self.contentView.backgroundColor = [UIColor colorWithHexString:@"#171717"];
+
     [self.timeLabel setHidden:YES];
     self.inviteButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.inviteButton setImage:[UIImage imageNamedFromBundle:@"invite"] forState:UIControlStateNormal];
@@ -411,6 +415,7 @@
         [rootViewController presentViewController:self animated:YES completion:nil];
         return;
     }
+    
     if(aVideoView == self.bigView) {
         self.bigView = nil;
         [self updateViewPos];

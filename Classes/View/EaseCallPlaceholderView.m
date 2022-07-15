@@ -19,13 +19,13 @@
         self.backgroundColor = [UIColor blackColor];
         self.nameLabel = [[UILabel alloc] init];
         self.nameLabel.textColor = [UIColor whiteColor];
-        self.nameLabel.font = [UIFont systemFontOfSize:13];
-        self.nameLabel.textAlignment = NSTextAlignmentCenter;
+        self.nameLabel.font = [UIFont systemFontOfSize:12.0];
+        self.nameLabel.textAlignment = NSTextAlignmentLeft;
         [self addSubview:self.nameLabel];
         [self bringSubviewToFront:self.nameLabel];
         [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self).offset(-5);
-            make.left.equalTo(self);
+            make.left.equalTo(self).offset(16.0);
             make.width.equalTo(self);
             make.height.equalTo(@30);
         }];

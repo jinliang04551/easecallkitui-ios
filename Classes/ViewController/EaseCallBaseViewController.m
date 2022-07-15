@@ -11,6 +11,7 @@
 #import <Masonry/Masonry.h>
 #import "UIImage+Ext.h"
 #import "EaseCallLocalizable.h"
+#import "UIColor+EaseCall.h"
 
 @interface EaseCallBaseViewController ()
 
@@ -20,7 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.view.backgroundColor = [UIColor colorWithHexString:@"#171717"];
+    
+    
     [self setubSubViews];
     
     self.speakerButton.selected = YES;
@@ -257,7 +261,7 @@
 - (void)miniAction
 {
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
-    self.floatingView.frame = CGRectMake(self.contentView.bounds.size.width - 100, 80, 80, 100);
+    self.floatingView.frame = CGRectMake(self.contentView.bounds.size.width - 100, 80, 88.0, 88.0);
     [keyWindow addSubview:self.floatingView];
     [keyWindow bringSubviewToFront:self.floatingView];
     
@@ -270,7 +274,10 @@
     {
         _floatingView = [[EaseCallStreamView alloc] init];
         _floatingView.backgroundColor = [UIColor grayColor];
+//        _floatingView.backgroundColor = [UIColor colorWithHexString:@"#171717"];
         _floatingView.bgView.image = [UIImage imageNamedFromBundle:@"floating_voice"];
+        _floatingView.nameLabel.textAlignment = NSTextAlignmentCenter;
+        
         [_floatingView.bgView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.width.height.equalTo(@55);
         }];
@@ -300,6 +307,7 @@
     }
     
 }
+
 
 - (void)timeTimerAction:(id)sender
 {

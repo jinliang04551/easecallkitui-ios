@@ -11,6 +11,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImage+Ext.h"
 #import "EaseCallLocalizable.h"
+#import "UIColor+EaseCall.h"
 
 @interface EaseCallSingleViewController ()<EaseCallStreamViewDelegate>
 @property (nonatomic) NSString* remoteUid;
